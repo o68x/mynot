@@ -1,0 +1,25 @@
+{
+  "name": "mynot",
+  "version": "1.0.0",
+  "description": "My notion api functions",
+  "main": "index.js",
+  "type": "module",
+  "bin": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "newauthors": "DEBUG=* node -r dotenv/config index newauthors dotenv_config_path=.env.dev"
+  },
+  "author": "Olivier <ocardinaux@gmail.com>",
+  "license": "WTFPL",
+  "dependencies": {
+    "@notionhq/client": "^1.0.4",
+    "better-sqlite3": "^7.5.0",
+    "chalk": "^5.0.1",
+    "commander": "^9.1.0",
+    "dotenv": "^16.0.0",
+    "ora": "^6.1.0"
+  },
+  "devDependencies": {
+    "debug": "^4.3.4"
+  }
+}
