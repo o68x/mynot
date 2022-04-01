@@ -10,3 +10,7 @@ npm-debug.log*
 
 # VS Code stuff
 .vscode/
+
+# assets
+assets/covers/
+assets/dbg_covers/

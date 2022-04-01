@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
+import "dotenv/config"
+import * as library from "./lib/library.js";
 import chalk from "chalk";
 import { Command } from 'commander';
-import { lastBook, newBooks, newAuthors } from "./lib/library.js";
-import "dotenv/config"
 
 const program = new Command();
 
@@ -12,57 +12,26 @@ program
   .description("My Notion CLI applications")
   .version()
 
-
 program
-  .command("library")
+  .command("addnewbooks")
   .description(
-    "fetches books and authors, puts it where they belong, in Notion. Yeah! :)"
+    "get the new books in calibre"
   )
-  .option('--all', 'get all new books from calibre')
-  .action(() => {
-    library()
+  .action(async() => {
+    await library.addNewBooks()
   });
 
-  program
-  .command("newbooks")
-  .description(
-    "get the new books from calibre"
-  )
-  .action(async () => {
-    const res = await newBooks()
-    console.log(res);
-    // console.log(res[0].authors);
-  });
-
-  program
-  .command("newauthors")
-  .description(
-    "get the new authors from calibre"
-  )
-  .action(async () => {
-    const res = await newAuthors()
-    console.log(res);
-  });
-
-  program
+// BUG: it looks like there are some pending promises somewhere
+program
   .command("lastbook")
   .description(
     "gets the idx of the last book imported in notion"
   )
-  .action(async () => {
-    const res = await lastBook()
-    console.log(res);
+  .action( async () => {
+    let res = await library.lastBook();
+    console.log(chalk.green(`Last index is ${res}`));
   });
 
-program
-  .command("highlights")
-  .description("fetches Calibre highlights, puts them in Notion, yeah")
-  .action(() => {
-    library.getAllHighlights().catch((e) => {
-      console.log("\n\nerror: " + e.message);
-      process.exit(0);
-    });
-  });
-
-program.parse();
-
+program.parseAsync().then(() => {
+  console.log('done.');
+});
