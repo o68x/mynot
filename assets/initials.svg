@@ -1,0 +1,23 @@
+<svg 
+  viewBox="0 0 480 480"
+  width="480" 
+  height="480" 
+  xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="a" x1="1" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffc200"/>
+      <stop offset="1" stop-color="#741b56"/>
+    </linearGradient>
+  </defs>
+    <rect fill="url(#a)" x="0" width="480" height="480" rx="50" />
+    <text
+      fill="#44c8db"
+      font-family="Sans-serif"
+      font-size="156"
+      letter-spacing="-10"
+      text-anchor="left"
+      x="20"
+      y="450"
+      xml:space="preserve"
+    >OC</text>
+</svg>
