@@ -4,7 +4,7 @@ import "dotenv/config";
 import { exec } from "child_process";
 import chalk from "chalk";
 import { Command } from "commander";
-// BUG: it looks like there are some pending promises somewhere
+// !BUG: it looks like there are some pending promises somewhere
 import * as library from "./lib/library.js";
 
 const program = new Command();
@@ -22,7 +22,7 @@ program
   .command("lastbook")
   .description("gets the idx of the last book imported in notion")
   .action(async () => {
-    const res = await library.lastBook();
+    const res = await library.getLastCalibreIndexInNotion();
     console.log(chalk.green(`Last index is ${res}`));
     process.exit(0);
   });

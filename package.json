@@ -8,7 +8,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "debug:addnewbooks": "DEBUG=* node -r dotenv/config index addnewbooks dotenv_config_path=.env.dev",
-    "timer:addnewbooks": "DEBUG=timer node -r dotenv/config index addnewbooks dotenv_config_path=.env.dev",
     "addnewbooks": "node -r dotenv/config index addnewbooks dotenv_config_path=.env.dev",
     "lastbook": "node -r dotenv/config index lastbook dotenv_config_path=.env.dev"
   },
